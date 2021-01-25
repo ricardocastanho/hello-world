@@ -1,7 +1,7 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
-  "description": "Practicing Node with Express, Apollo-Server, Docker and Jest !",
+  "description": "Practicing Node with GraphQL, Docker and Jest !",
   "main": "src/index.js",
   "author": "Ricardo Castanho",
   "license": "unlicensed",
