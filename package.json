@@ -1,13 +1,10 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
-  "description": "hello world test",
+  "description": "Practicing Node with Express, Apollo-Server, Docker and Jest !",
   "main": "src/index.js",
   "author": "Ricardo Castanho",
   "license": "unlicensed",
-  "scripts": {
-    "dev": "nodemon src/index.js"
-  },
   "dependencies": {
     "apollo-server": "^2.19.2",
     "graphql": "^15.4.0"
