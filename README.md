@@ -1,2 +1,2 @@
 # Hello-World
-Practicing Node with GraphQL, Apollo-Server, Docker and Jest !
+Practicing Node with GraphQL, Docker and Jest !
