@@ -1,2 +1,2 @@
 # Hello-World
-Practicing Node with Express, Apollo-Server, Docker and Jest !
+Practicing Node with GraphQL, Apollo-Server, Docker and Jest !
