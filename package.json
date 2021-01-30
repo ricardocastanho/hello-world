@@ -7,12 +7,12 @@
   "private": "false",
   "license": "unlicensed",
   "scripts": {
-    "dev": "LOG_LEVEL=debug nodemon --ext js,graphql src/index.js",
+    "dev": "nodemon --ext js,graphql src/index.js",
     "lint": "eslint src/"
   },
   "dependencies": {
     "apollo-server": "^2.19.2",
-    "graphql": "^15.4.0"
+    "graphql": "^15.5.0"
   },
   "devDependencies": {
     "eslint": "^7.18.0",
