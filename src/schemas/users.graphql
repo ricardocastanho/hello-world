@@ -1,0 +1,11 @@
+type Users {
+  id: ID
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+}
+
+extend type Query {
+  users: [Users]
+}

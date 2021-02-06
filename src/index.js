@@ -1,19 +1,11 @@
-const { ApolloServer, gql } = require('apollo-server')
+const { buildServer } = require('./server')
+const { logger } = require('./support/logger')
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!'
-  }
-}
-
-const server = new ApolloServer({ typeDefs, resolvers })
-
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
-})
+buildServer({ logger })
+  .then(server => {
+    return server.listen(process.env.PORT || 2121)
+  })
+  .then(({ url }) => {
+    logger.info({ NODE_ENV: process.env.NODE_ENV }, `🚀  Server ready at ${url}`)
+    process.send && process.send('ready')
+  })
