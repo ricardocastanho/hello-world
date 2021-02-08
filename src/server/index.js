@@ -1,6 +1,7 @@
 const { ApolloServer } = require('apollo-server')
 const { buildTypeDefs } = require('./type-defs')
 const { buildResolvers } = require('./resolvers')
+const { buildContext } = require('./context')
 const { buildPlaygroundOptions } = require('./playground')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -12,6 +13,7 @@ const buildServer = async ({ logger }) => {
   ])
 
   const server = new ApolloServer({
+    context: buildContext({ logger }),
     playground: buildPlaygroundOptions(isProd),
     tracing: !isProd,
     subscriptions: false,
