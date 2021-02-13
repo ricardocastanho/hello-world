@@ -1,11 +1,5 @@
 const users = async (root, params, { database, logger }) => {
-  return [{
-    id: 1,
-    firstName: 'Ricardo',
-    lastName: 'Castanho',
-    email: 'ricardinhorl@hotmail.com',
-    password: '*****'
-  }]
+  return await database('users')
 }
 
 module.exports = { users }

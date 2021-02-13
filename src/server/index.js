@@ -13,7 +13,7 @@ const buildServer = async ({ logger }) => {
   ])
 
   const server = new ApolloServer({
-    context: buildContext({ logger }),
+    context: await buildContext({ logger }),
     playground: buildPlaygroundOptions(isProd),
     tracing: !isProd,
     subscriptions: false,
