@@ -8,6 +8,8 @@
   "license": "unlicensed",
   "scripts": {
     "dev": "nodemon --ext js,graphql src/index.js",
+    "knex:migrate": "knex migrate:latest",
+    "knex:seed": "knex seed:run",
     "lint": "eslint src/"
   },
   "dependencies": {
