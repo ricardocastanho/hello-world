@@ -7,7 +7,7 @@ exports.up = async (knex) => {
       table.string('first_name', 30).notNullable()
       table.string('last_name', 50).notNullable()
       table.string('email', 100).notNullable().unique()
-      table.string('password', 30).notNullable()
+      table.string('password', 100).notNullable()
       table.timestamps(true, true)
       table.timestamp('deleted_at')
     })
@@ -79,10 +79,10 @@ exports.up = async (knex) => {
 
 exports.down = async (knex) => {
   return knex.schema
-    .dropTable('users')
     .dropTable('users_teams')
-    .dropTable('teams')
-    .dropTable('products')
     .dropTable('pendencies')
     .dropTable('sprints')
+    .dropTable('products')
+    .dropTable('teams')
+    .dropTable('users')
 }
