@@ -13,20 +13,20 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "@graphql-tools/load-files": "^6.2.5",
+    "@graphql-tools/load-files": "^6.3.1",
     "@graphql-tools/merge": "^6.2.7",
-    "apollo-server": "^2.19.2",
+    "apollo-server": "^2.21.1",
     "argon2": "^0.27.1",
     "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
-    "knex": "^0.21.17",
+    "knex": "^0.95.2",
     "lodash": "^4.17.21",
     "pg": "^8.5.1",
-    "pino": "^6.11.0",
+    "pino": "^6.11.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "^7.18.0",
+    "eslint": "^7.22.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
