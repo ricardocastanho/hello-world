@@ -7,4 +7,4 @@ require('dotenv').config({
 
 const database = require('knex')(config)
 
-module.exports = database
+export { database }

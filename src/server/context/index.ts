@@ -1,7 +1,7 @@
 const { v4: uuid } = require('uuid')
 const database = require('./database')
 
-const buildContext = ({ logger: rootLogger }) => {
+const buildContext = ({ logger: rootLogger }: any) => {
   const logger = rootLogger.child({
     requestId: uuid()
   })
@@ -14,4 +14,4 @@ const buildContext = ({ logger: rootLogger }) => {
   return context
 }
 
-module.exports = { buildContext }
+export { buildContext }

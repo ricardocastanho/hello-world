@@ -1,5 +1,6 @@
-const { buildServer } = require('./server')
-const { logger } = require('./support/logger')
+import 'reflect-metadata'
+import { buildServer } from './server'
+import { logger } from './support/logger'
 
 buildServer({ logger })
   .then(server => {
