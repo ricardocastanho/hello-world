@@ -6,6 +6,4 @@ export const serverError = (error: Error): HttpResponse => ({
   data: error.stack
 })
 
-export const ok = (data: any): HttpResponse => ({
-  data
-})
+export const serverSuccess = (data: any): HttpResponse => data
