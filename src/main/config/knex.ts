@@ -1,3 +1,4 @@
-import config from '@/main/config/database'
+import knex from 'knex'
+import config from './database'
 
-export default require('knex')(config)
+export default knex(config)
