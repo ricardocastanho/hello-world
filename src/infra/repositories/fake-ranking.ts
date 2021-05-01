@@ -1,4 +1,4 @@
-import { LoadLastRankingRepository } from '@/data/contracts'
+import { LoadLastRankingRepository } from '@/data/respositories'
 import { RankingScoreModel } from '@/data/models'
 import { ranking } from '@/infra/data-sources'
 
