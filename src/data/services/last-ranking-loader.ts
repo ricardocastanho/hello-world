@@ -1,7 +1,7 @@
 import { RankingScore } from '@/domain/entities'
 import { LastRankingLoader } from '@/domain/usecases'
 import { RankingUnavailableError } from '@/domain/errors'
-import { LoadLastRankingRepository } from '@/data/contracts'
+import { LoadLastRankingRepository } from '@/data/respositories'
 
 export class LastRankingLoaderService implements LastRankingLoader {
   constructor (private readonly loadLastRankingRepository: LoadLastRankingRepository) {}
