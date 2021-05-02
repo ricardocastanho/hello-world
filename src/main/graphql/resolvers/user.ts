@@ -1,11 +1,12 @@
-import { adaptResolver } from '@/main/adapters'
+import { Controller } from '@/presentation/contracts'
 import { loadUsersController } from '@/main/factories'
 
 export default {
   Query: {
-    loadUsers: async () => {
+    loadUsers: async (): Promise<Controller> => {
       const controller = await loadUsersController()
-      return adaptResolver(controller)
+
+      return controller.handle()
     }
   }
 }
