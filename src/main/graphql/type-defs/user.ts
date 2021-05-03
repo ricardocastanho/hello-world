@@ -2,7 +2,7 @@ import { gql } from 'apollo-server'
 
 export default gql`
   extend type Query {
-    loadUsers: [User!]
+    userLoad: [User!]
   }
 
   type User {
