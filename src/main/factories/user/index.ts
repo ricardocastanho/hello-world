@@ -1,1 +1,1 @@
-export * from './load-users-controller'
+export * from './load-users'

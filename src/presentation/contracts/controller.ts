@@ -1,3 +1,3 @@
-export interface Controller {
-  handle: () => Promise<any>
+export interface Controller<T = any> {
+  handle: () => Promise<T>
 }

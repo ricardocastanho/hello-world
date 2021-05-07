@@ -1,9 +1,9 @@
-import { Controller } from '@/presentation/contracts'
+import { UserViewModel } from '@/presentation/view-models'
 import { loadUsersController } from '@/main/factories'
 
 export default {
   Query: {
-    userLoad: async (): Promise<Controller> => {
+    loadUsers: async (): Promise<UserViewModel[]> => {
       const controller = await loadUsersController()
 
       return controller.handle()
