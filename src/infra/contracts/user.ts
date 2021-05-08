@@ -1,3 +1,5 @@
+import { User } from '@/domain/entities'
+
 export type PosgresqlUser = {
   id: string
   first_name: string
@@ -7,4 +9,8 @@ export type PosgresqlUser = {
   created_at: string
   updated_at: string
   deleted_at: string
+}
+
+export interface LoadUsersRepository {
+  loadUsers: () => Promise<User[]>
 }
