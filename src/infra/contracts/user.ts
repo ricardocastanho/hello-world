@@ -1,6 +1,6 @@
 import { User } from '@/domain/entities'
 
-export type PosgresqlUser = {
+export type PostgresqlUser = {
   id: string
   first_name: string
   last_name: string
