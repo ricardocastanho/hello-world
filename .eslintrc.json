@@ -11,5 +11,10 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-extraneous-class": "off"
-  }
+  },
+  "ignorePatterns": [
+    "tests/**",
+    "node_modules/**",
+    "dist/**"
+  ]
 }
