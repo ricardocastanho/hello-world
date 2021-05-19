@@ -27,4 +27,4 @@ it('should return all users with postgresql database format', async () => {
   expect(knex.from).toHaveBeenCalled()
   expect(knex.from).toHaveBeenCalledTimes(1)
   expect(knex.from).toHaveBeenCalledWith('users')
-});
+})
