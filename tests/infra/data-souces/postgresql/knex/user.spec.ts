@@ -1,3 +1,6 @@
+jest.mock('@/main/config/knex')
+
+import knex from '@/main/config/knex'
 import { loadUsers } from '@/infra/data-sources/postgresql/knex'
 import { PostgresqlUser } from '@/infra/contracts'
 
@@ -13,14 +16,15 @@ const users: PostgresqlUser[] = [{
 }]
 
 it('should return all users with postgresql database format', async () => {
-  const query = Promise.resolve(users)
-  const knex = jest.fn(() => query)
+  const mockedKnex = knex as jest.Mocked<typeof knex>
 
-  await expect(loadUsers(knex))
+  mockedKnex.from.mockResolvedValue(users)
+
+  await expect(loadUsers())
     .resolves
     .toEqual(users)
 
-  expect(knex).toHaveBeenCalled()
-  expect(knex).toHaveBeenCalledTimes(1)
-  expect(knex).toHaveBeenCalledWith('users')
-})
+  expect(knex.from).toHaveBeenCalled()
+  expect(knex.from).toHaveBeenCalledTimes(1)
+  expect(knex.from).toHaveBeenCalledWith('users')
+});

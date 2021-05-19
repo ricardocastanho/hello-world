@@ -1,5 +1,5 @@
+import knex from '@/main/config/knex'
 import { PostgresqlUser } from '@/infra/contracts'
-import { Knex } from 'knex'
 
-export const loadUsers = async (knex: Knex): Promise<PostgresqlUser[]> =>
-  await knex<PostgresqlUser>('users')
+export const loadUsers = async (): Promise<PostgresqlUser[]> =>
+  await knex.from<PostgresqlUser>('users')
