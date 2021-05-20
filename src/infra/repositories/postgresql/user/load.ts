@@ -11,9 +11,9 @@ export class LoadPostgresqlUsersRepository implements LoadUsersRepository {
       lastName: item.last_name,
       email: item.email,
       password: item.password,
-      createdAt: new Date(item.created_at),
-      updatedAt: new Date(item.updated_at),
-      deletedAt: new Date(item.deleted_at)
+      createdAt: item.created_at ? new Date(item.created_at) : null,
+      updatedAt: item.updated_at ? new Date(item.updated_at) : null,
+      deletedAt: item.deleted_at ? new Date(item.deleted_at) : null
     }))
   }
 }
