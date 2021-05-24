@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { range, map, isEmpty } = require('lodash')
+const { range, reduce } = require('lodash')
 const { TEAMS_PER_USER_MAX } = require('../length')
 
 faker.locale = 'pt_BR'
@@ -16,23 +16,19 @@ const modelUserTeams = (user, team) => ({
   deleted_at: faker.datatype.boolean() ? faker.date.recent(30) : null
 })
 
-const insertUsersTeams = async (knex, { users, teams }) => {
-  const usersTeams = map(users, user => {
-    return range(faker.datatype.number(TEAMS_PER_USER_MAX)).map(() => {
+const makeUsersTeams = (users, teams) =>
+  reduce(users, (result, user) => {
+    const userTeam = range(faker.datatype.number(TEAMS_PER_USER_MAX)).map(() => {
       const team = teams[faker.datatype.number(teams.length - 1)]
 
       return modelUserTeams(user, team)
     })
-  })
 
-  for (const userTeam of usersTeams) {
-    if (isEmpty(userTeam)) {
-      return
-    }
-
-    await knex('users_teams').insert(userTeam)
-  }
-}
+    return [
+      ...userTeam,
+      ...result
+    ]
+  }, [])
 
 exports.seed = async knex => {
   await knex('users_teams').del()
@@ -40,5 +36,7 @@ exports.seed = async knex => {
   const users = await knex('users')
   const teams = await knex('teams')
 
-  await insertUsersTeams(knex, { users, teams })
+  const usersTeams = makeUsersTeams(users, teams)
+
+  await knex('users_teams').insert(usersTeams)
 }

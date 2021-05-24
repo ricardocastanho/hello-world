@@ -13,16 +13,12 @@ const modelTeams = () => ({
   deleted_at: faker.datatype.boolean() ? faker.date.recent(30) : null
 })
 
-const insertTeams = async knex => {
-  const teams = range(TEAMS_MAX)
-    .map(() => modelTeams())
-
-  await knex('teams')
-    .insert(teams)
-}
+const makeTeams = () => range(TEAMS_MAX).map(() => modelTeams())
 
 exports.seed = async knex => {
   await knex('teams').del()
 
-  await insertTeams(knex)
+  const teams = makeTeams(knex)
+
+  await knex('teams').insert(teams)
 }

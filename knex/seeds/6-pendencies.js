@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { map, range, isEmpty } = require('lodash')
+const { reduce, range } = require('lodash')
 const { PENDENCIES_PER_PRODUCT_MAX } = require('../length')
 
 faker.locale = 'pt_BR'
@@ -16,23 +16,19 @@ const modelPendencies = (product, sprint) => ({
   deleted_at: faker.datatype.boolean() ? faker.date.recent(30) : null
 })
 
-const insertPendencies = async (knex, { products, sprints }) => {
-  const pendencies = map(products, product => {
-    return range(faker.datatype.number(PENDENCIES_PER_PRODUCT_MAX)).map(() => {
+const insertPendencies = (products, sprints) =>
+  reduce(products, (result, product) => {
+    const pendency = range(faker.datatype.number(PENDENCIES_PER_PRODUCT_MAX)).map(() => {
       const sprint = sprints[faker.datatype.number(sprints.length - 1)]
 
       return modelPendencies(product, sprint)
     })
-  })
 
-  for (const pendency of pendencies) {
-    if (isEmpty(pendency)) {
-      return
-    }
-
-    await knex('pendencies').insert(pendency)
-  }
-}
+    return [
+      ...pendency,
+      ...result
+    ]
+  }, [])
 
 exports.seed = async knex => {
   await knex('pendencies').del()
@@ -40,5 +36,7 @@ exports.seed = async knex => {
   const products = await knex('products')
   const sprints = await knex('sprints')
 
-  await insertPendencies(knex, { products, sprints })
+  const pendencies = insertPendencies(products, sprints)
+
+  await knex('pendencies').insert(pendencies)
 }

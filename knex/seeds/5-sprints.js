@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { map, range, isEmpty } = require('lodash')
+const { reduce, range } = require('lodash')
 const { SPRINTS_PER_PRODUCT_MAX } = require('../length')
 
 faker.locale = 'pt_BR'
@@ -14,26 +14,24 @@ const modelSprints = product => ({
   deleted_at: faker.datatype.boolean() ? faker.date.recent(30) : null
 })
 
-const insertSprints = async (knex, { products }) => {
-  const sprints = map(products, product => {
-    return range(faker.datatype.number(SPRINTS_PER_PRODUCT_MAX)).map(() =>
+const makeSprints = products =>
+  reduce(products, (result, product) => {
+    const sprint = range(faker.datatype.number(SPRINTS_PER_PRODUCT_MAX)).map(() =>
       modelSprints(product)
     )
-  })
 
-  for (const sprint of sprints) {
-    if (isEmpty(sprint)) {
-      return
-    }
-
-    await knex('sprints').insert(sprint)
-  }
-}
+    return [
+      ...sprint,
+      ...result
+    ]
+  }, [])
 
 exports.seed = async knex => {
   await knex('sprints').del()
 
   const products = await knex('products')
 
-  await insertSprints(knex, { products })
+  const sprints = makeSprints(products)
+
+  await knex('sprints').insert(sprints)
 }

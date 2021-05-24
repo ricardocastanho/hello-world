@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { map, range, isEmpty } = require('lodash')
+const { reduce, range } = require('lodash')
 const { PRODUCTS_PER_TEAM_MAX } = require('../length')
 
 faker.locale = 'pt_BR'
@@ -15,26 +15,23 @@ const modelProducts = team => ({
   deleted_at: faker.datatype.boolean() ? faker.date.recent(30) : null
 })
 
-const insertProducts = async (knex, { teams }) => {
-  const products = map(teams, team => {
-    return range(faker.datatype.number(PRODUCTS_PER_TEAM_MAX))
+const makeProducts = teams =>
+  reduce(teams, (result, team) => {
+    const product = range(faker.datatype.number(PRODUCTS_PER_TEAM_MAX))
       .map(() => modelProducts(team))
-  })
 
-  for (const product of products) {
-    if (isEmpty(product)) {
-      return
-    }
-
-    await knex('products')
-      .insert(product)
-  }
-}
+    return [
+      ...product,
+      ...result
+    ]
+  }, [])
 
 exports.seed = async knex => {
   await knex('products').del()
 
   const teams = await knex('teams')
 
-  await insertProducts(knex, { teams })
+  const products = makeProducts(teams)
+
+  await knex('products').insert(products)
 }

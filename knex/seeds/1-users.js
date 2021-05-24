@@ -24,13 +24,10 @@ const modelUser = async email => {
   }
 }
 
-const insertUsers = async knex => {
+const makeUsers = async () => {
   const firstUser = await modelUser(firstEmail)
   const users = await Promise.all(range(USERS_MAX)
     .map(() => modelUser()))
-
-  await knex('users')
-    .insert([firstUser, ...users])
 
   return [firstUser, ...users]
 }
@@ -38,5 +35,7 @@ const insertUsers = async knex => {
 exports.seed = async knex => {
   await knex('users').del()
 
-  await insertUsers(knex)
+  const users = await makeUsers(knex)
+
+  await knex('users').insert(users)
 }
