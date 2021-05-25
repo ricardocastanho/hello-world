@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: 12
       - run: yarn
-      - run: yarn eslint src/
+      - run: yarn eslint .
       - run: yarn test
       - run: yarn build
