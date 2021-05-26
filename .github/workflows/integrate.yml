@@ -1,14 +1,13 @@
-name: Node Continuous Integration
+name: Continuous Integration
 
 on:
-  pull_request:
-    branches: [ master, develop ]
   push:
     branches: [ master, develop ]
-
+  pull_request:
+    branches: [ master, develop ]
 
 jobs:
-  test_pull_request:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
