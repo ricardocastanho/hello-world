@@ -5,9 +5,9 @@ import { UserViewModel } from '@/presentation/view-models'
 export class LoadUsersController implements Controller {
   constructor (private readonly loadUsersService: LoadUsersUseCase) {}
 
-  async handle (): Promise<UserViewModel[]> {
+  handle (): UserViewModel[] {
     try {
-      const users = await this.loadUsersService.loadUsers()
+      const users = this.loadUsersService.loadUsers()
 
       return UserViewModel.mapCollection(users)
     } catch (error) {

@@ -4,7 +4,7 @@ import { LoadUsersRepository, PostgresqlUser } from '@/infra/contracts'
 export class LoadPostgresqlUsersRepository implements LoadUsersRepository {
   constructor (private readonly postgresqlUsers: PostgresqlUser[]) {}
 
-  async loadUsers (): Promise<User[]> {
+  loadUsers (): User[] {
     return this.postgresqlUsers.map(item => ({
       id: item.id,
       firstName: item.first_name,

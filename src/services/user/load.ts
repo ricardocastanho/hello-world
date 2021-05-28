@@ -5,7 +5,7 @@ import { LoadUsersRepository } from '@/infra/contracts'
 export class LoadUsersService implements LoadUsersUseCase {
   constructor (private readonly loadUsersRepository: LoadUsersRepository) {}
 
-  async loadUsers (): Promise<User[]> {
+  loadUsers (): User[] {
     return this.loadUsersRepository.loadUsers()
   }
 }

@@ -12,5 +12,5 @@ export type PostgresqlUser = {
 }
 
 export interface LoadUsersRepository {
-  loadUsers: () => Promise<User[]>
+  loadUsers: () => User[]
 }
