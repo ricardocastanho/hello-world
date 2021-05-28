@@ -15,7 +15,7 @@ const users: PostgresqlUser[] = [{
   deleted_at: null
 }]
 
-it('should return all users with postgresql database format', async () => {
+it('should return all users with postgresql format', async () => {
   const mockedKnex = knex as jest.Mocked<typeof knex>
 
   mockedKnex.from.mockResolvedValue(users)
