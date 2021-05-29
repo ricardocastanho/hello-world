@@ -1,4 +1,4 @@
-import { User } from '@/domain/entities'
+import { User } from '@/domain'
 
 export type PostgresqlUser = {
   id: string

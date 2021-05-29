@@ -1,9 +1,7 @@
-import { LoadUsersService } from '@/services'
+import { LoadUsersService } from '@/domain'
 import { loadUsers } from '@/infra/data-sources/postgresql/knex'
 import { LoadPostgresqlUsersRepository } from '@/infra/repositories'
-import { Controller } from '@/presentation/contracts'
-import { UserViewModel } from '@/presentation/view-models'
-import { LoadUsersController } from '@/presentation/controllers'
+import { Controller, LoadUsersController, UserViewModel } from '@/presentation'
 
 export const loadUsersController = async (): Promise<Controller<UserViewModel[]>> => {
   const users = await loadUsers()

@@ -1,5 +1,5 @@
+import { User } from '@/domain'
 import { LoadPostgresqlUsersRepository } from '@/infra/repositories'
-import { User } from '@/domain/entities'
 import { PostgresqlUser } from '@/infra/contracts'
 
 const postgresqlUser: PostgresqlUser = {

@@ -1,5 +1,4 @@
-import { User } from '@/domain/entities'
-import { LoadUsersUseCase } from '@/domain/usecases'
+import { User, LoadUsersUseCase } from '@/domain'
 import { LoadUsersRepository } from '@/infra/contracts'
 
 export class LoadUsersService implements LoadUsersUseCase {

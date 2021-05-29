@@ -1,4 +1,4 @@
-import { User } from '@/domain/entities'
+import { User } from '@/domain'
 import { LoadUsersRepository, PostgresqlUser } from '@/infra/contracts'
 
 export class LoadPostgresqlUsersRepository implements LoadUsersRepository {

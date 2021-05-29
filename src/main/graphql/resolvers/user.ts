@@ -1,4 +1,4 @@
-import { UserViewModel } from '@/presentation/view-models'
+import { UserViewModel } from '@/presentation'
 import { loadUsersController } from '@/main/factories'
 
 export default {

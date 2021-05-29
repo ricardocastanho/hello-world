@@ -1,7 +1,5 @@
 import { LoadUsersUseCase } from '@/domain/usecases'
-import { Controller } from '@/presentation/contracts'
-import { UserViewModel } from '@/presentation/view-models'
-
+import { Controller, UserViewModel } from '@/presentation'
 export class LoadUsersController implements Controller {
   constructor (private readonly loadUsersService: LoadUsersUseCase) {}
 
