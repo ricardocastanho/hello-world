@@ -18,8 +18,8 @@ const users: User[] = [
     lastName: 'Gaúcho',
     email: 'ronaldinho@test.com',
     password: '**********',
-    createdAt: null,
-    updatedAt: null,
+    createdAt: new Date('2021-05-10T20:49:55.684Z'),
+    updatedAt: new Date('2021-05-10T20:49:55.684Z'),
     deletedAt: null,
   }
 ]
@@ -39,8 +39,8 @@ const usersPresentation: UserViewModel[] = [
     firstName: 'Ronadinho',
     lastName: 'Gaúcho',
     email: 'ronaldinho@test.com',
-    createdAt: null,
-    updatedAt: null,
+    createdAt: '2021-05-10T20:49:55.684Z',
+    updatedAt: '2021-05-10T20:49:55.684Z',
     deletedAt: null,
   }
 ]

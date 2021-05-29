@@ -15,8 +15,8 @@ export class UserViewModel {
       firstName: entity.firstName,
       lastName: entity.lastName,
       email: entity.email,
-      createdAt: entity.createdAt ? entity.createdAt.toISOString() : null,
-      updatedAt: entity.updatedAt ? entity.updatedAt.toISOString() : null,
+      createdAt: entity.createdAt.toISOString(),
+      updatedAt: entity.updatedAt.toISOString(),
       deletedAt: entity.deletedAt ? entity.deletedAt.toISOString() : null
     }
   }
