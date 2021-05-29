@@ -12,14 +12,14 @@ const users: User[] = [{
   deletedAt: null
 }]
 
-class mockedRepo implements LoadUsersRepository {
+class MockedRepository implements LoadUsersRepository {
   loadUsers (): User[] {
     return users
   }
 }
 
 it('should aplly the business logic to load users', () => {
-  const repo = new mockedRepo()
+  const repo = new MockedRepository()
 
   const service = new LoadUsersService(repo)
 
