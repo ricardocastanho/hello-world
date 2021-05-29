@@ -2,33 +2,33 @@
   Scrum API
 </h1>
 
-<p>🚀 Make awesome things! 🚀</p>
+<p align="center">🚀 Make awesome things! 🚀</p>
 
-# Clone this repository
+## Clone this repository
 $ git clone <https://github.com/ricardocastanho/scrum-api.git>
 
-# Acess the project
+## Acess the project
 $ cd scrum-api
 
-# Install the dependencies
+## Install the dependencies
 $ yarn
 
-# Run docker-compose
+## Run docker-compose
 $ docker-compose up -d
 
-# Run migrations to build the database
+## Run migrations to build the database
 $ yarn knex migrate:latest
 
-# Run seeds to make fake data
+## Run seeds to make fake data
 $ yarn knex seed:run
 
-# Make build
+## Make build
 $ yarn build
 
-# Run the aplication
+## Run the aplication
 $ yarn start
 
-# And done! - access <http://localhost:4000> to write in GraphQL playground!
+## And done! - access <http://localhost:4000> to write in GraphQL playground!
 
 ### 🛠 Tecnologies
 
