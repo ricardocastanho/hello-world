@@ -21,7 +21,7 @@ const postgresqlUsers: PostgresqlUser[] = [
     password: '************',
     created_at: '2020-05-10T20:49:55.201Z',
     updated_at: '2021-06-15T22:29:05.958Z',
-    deleted_at: null,
+    deleted_at: null
   }
 ]
 
@@ -44,7 +44,7 @@ const users: User[] = [
     password: '************',
     createdAt: new Date('2020-05-10T20:49:55.201Z'),
     updatedAt: new Date('2021-06-15T22:29:05.958Z'),
-    deletedAt: null,
+    deletedAt: null
   }
 ]
 

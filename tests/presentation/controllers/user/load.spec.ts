@@ -1,4 +1,4 @@
-import { LoadUsersUseCase, User } from '@/domain';
+import { LoadUsersUseCase, User } from '@/domain'
 import { LoadUsersController, UserViewModel } from '@/presentation'
 
 const users: User[] = [
@@ -10,7 +10,7 @@ const users: User[] = [
     password: '**********',
     createdAt: new Date('2021-05-10T20:49:55.684Z'),
     updatedAt: new Date('2021-05-10T20:49:55.684Z'),
-    deletedAt: new Date('2021-05-10T20:49:55.684Z'),
+    deletedAt: new Date('2021-05-10T20:49:55.684Z')
   },
   {
     id: 'de55e846-d279-4916-b960-a06a5c80b1ac',
@@ -20,11 +20,11 @@ const users: User[] = [
     password: '**********',
     createdAt: new Date('2021-05-10T20:49:55.684Z'),
     updatedAt: new Date('2021-05-10T20:49:55.684Z'),
-    deletedAt: null,
+    deletedAt: null
   }
 ]
 
-const usersPresentation: UserViewModel[] = [
+const presentationUsers: UserViewModel[] = [
   {
     id: '6aea824d-1690-4056-8449-ee26dca84196',
     firstName: 'Ricardo',
@@ -41,7 +41,7 @@ const usersPresentation: UserViewModel[] = [
     email: 'ronaldinho@test.com',
     createdAt: '2021-05-10T20:49:55.684Z',
     updatedAt: '2021-05-10T20:49:55.684Z',
-    deletedAt: null,
+    deletedAt: null
   }
 ]
 
@@ -56,5 +56,5 @@ it('should return the loadUsers controller', () => {
 
   const controller = new LoadUsersController(service)
 
-  expect(controller.handle()).toEqual(usersPresentation)
+  expect(controller.handle()).toEqual(presentationUsers)
 })

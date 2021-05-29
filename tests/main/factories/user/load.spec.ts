@@ -24,7 +24,7 @@ const postgresqlUsers: PostgresqlUser[] = [
     password: '************',
     created_at: '2021-05-10T20:49:55.684Z',
     updated_at: '2021-05-10T20:49:55.684Z',
-    deleted_at: null,
+    deleted_at: null
   }
 ]
 
@@ -45,7 +45,7 @@ const presentationUsers: UserViewModel[] = [
     email: 'ronaldinho@test.com',
     createdAt: '2021-05-10T20:49:55.684Z',
     updatedAt: '2021-05-10T20:49:55.684Z',
-    deletedAt: null,
+    deletedAt: null
   }
 ]
 
