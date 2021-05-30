@@ -49,6 +49,7 @@ yarn start
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
 - [GraphQL](https://www.graphql.org/)
 - [Jest.js](https://www.jestjs.io/)
 - [Knex.js](https://www.knex.org/)
