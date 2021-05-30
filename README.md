@@ -34,6 +34,11 @@ yarn knex migrate:latest
 yarn knex seed:run
 ```
 
+## Test everything
+```shell
+yarn test
+```
+
 ## Make build
 ```shell
 yarn build
