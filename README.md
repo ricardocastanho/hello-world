@@ -35,6 +35,11 @@ yarn knex migrate:latest
 yarn knex seed:run
 ```
 
+#### 🔍 Check code sintax
+```shell
+yarn eslint .
+```
+
 #### ✅ Test everything
 ```shell
 yarn test
