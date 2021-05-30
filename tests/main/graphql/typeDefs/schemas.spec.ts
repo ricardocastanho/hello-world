@@ -23,6 +23,6 @@ const user = gql`
   }
 `
 
-it('should return loadUsers schema', () => {
+it('should return all schemas', () => {
   expect(typeDefs).toEqual([base, user])
 })
