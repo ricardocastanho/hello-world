@@ -51,7 +51,6 @@ const presentationUsers: UserViewModel[] = [
 
 it('should return loadUsers resolver', async () => {
   const mockedKnex = knex as jest.Mocked<typeof knex>
-
   mockedKnex.from.mockResolvedValue(postgresqlUsers)
 
   const [{ Query }] = resolvers

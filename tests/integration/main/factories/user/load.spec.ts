@@ -3,7 +3,7 @@ jest.mock('@/main/config/knex')
 import knex from '@/main/config/knex'
 import { PostgresqlUser } from '@/infra/contracts'
 import { loadUsersController } from '@/main/factories'
-import { UserViewModel } from '@/presentation'
+import { LoadUsersController, UserViewModel } from '@/presentation'
 
 const postgresqlUsers: PostgresqlUser[] = [
   {
@@ -51,10 +51,10 @@ const presentationUsers: UserViewModel[] = [
 
 it('should return loadUsersController factory', async () => {
   const mockedKnex = knex as jest.Mocked<typeof knex>
-
   mockedKnex.from.mockResolvedValue(postgresqlUsers)
 
   const controller = await loadUsersController()
 
+  expect(controller).toBeInstanceOf(LoadUsersController)
   expect(controller.handle()).toEqual(presentationUsers)
 })
