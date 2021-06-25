@@ -42,7 +42,7 @@ jobs:
       - run: yarn
       - run: yarn test integration --ci
 
-  build_tests:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
