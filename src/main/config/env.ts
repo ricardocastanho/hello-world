@@ -7,7 +7,7 @@ dotenv.config({
 
 export default {
   dbHost: process.env.DB_HOST || '127.0.0.1',
-  dbPort: process.env.DB_PORT || '1000',
+  dbPort: process.env.DB_PORT || '5432',
   dbName: process.env.DB_NAME || 'local',
   dbUser: process.env.DB_USER || 'root',
   dbPassword: process.env.DB_PASSWORD || 'root'
