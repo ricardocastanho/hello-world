@@ -67,7 +67,7 @@ exports.up = async (knex) => {
       table.uuid('product_id').notNullable()
       table.uuid('sprint_id')
       table.string('history', 150).notNullable()
-      table.enu('points', [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]).notNullable()
+      table.enu('points', [1, 3, 5, 8, 13, 21]).notNullable()
       table.enu('status', ['TODO', 'DOING', 'DONE']).notNullable().defaultTo('ToDo')
       table.timestamps(true, true)
       table.timestamp('deleted_at')

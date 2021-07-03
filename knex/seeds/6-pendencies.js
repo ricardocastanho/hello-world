@@ -9,7 +9,7 @@ const modelPendencies = (product, sprint) => ({
   product_id: product.id,
   sprint_id: faker.datatype.boolean() ? sprint.id : null,
   history: faker.lorem.words(10),
-  points: [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144][faker.datatype.number(10)],
+  points: [1, 3, 5, 8, 13, 21][faker.datatype.number(5)],
   status: ['TODO', 'DOING', 'DONE'][faker.datatype.number(2)],
   created_at: faker.date.recent(30),
   updated_at: faker.date.recent(30),
