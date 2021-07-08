@@ -6,6 +6,7 @@ dotenv.config({
 })
 
 export default {
+  appPort: process.env.APP_PORT || '7283',
   dbHost: process.env.DB_HOST || '127.0.0.1',
   dbPort: process.env.DB_PORT || '5432',
   dbName: process.env.DB_NAME || 'local',

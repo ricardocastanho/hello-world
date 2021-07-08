@@ -1,10 +1,11 @@
 import 'module-alias/register'
-import app from '@/main/config/app'
+import buildApp from '@/main/config/app'
+import env from '@/main/config/env'
 
-app.listen()
-  .then(({ url }): void => {
+const app = buildApp()
+
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+app.listen({ port: env.appPort })
+  .then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`)
-  })
-  .catch(error => {
-    console.log(error)
   })
