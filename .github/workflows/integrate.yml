@@ -3,7 +3,7 @@ name: Continuous Integration
 on: [ push, pull_request ]
 
 jobs:
-  install:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,45 +13,48 @@ jobs:
             node_modules
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
-      - run: yarn --frozen-lockfile --non-interactive
-      - run: yarn
 
-  lint_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: yarn
+      - run: yarn --frozen-lockfile --non-interactive
       - run: yarn eslint .
 
   unit_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/cache@v2
         with:
-          node-version: 12
-      - run: yarn
+          path: |
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
+      - run: yarn --frozen-lockfile --non-interactive
       - run: yarn test unit --ci
 
   integration_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/cache@v2
         with:
-          node-version: 12
-      - run: yarn
+          path: |
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
+      - run: yarn --frozen-lockfile --non-interactive
       - run: yarn test integration --ci
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/cache@v2
         with:
-          node-version: 12
-      - run: yarn
+          path: |
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
+      - run: yarn --frozen-lockfile --non-interactive
       - run: yarn build
