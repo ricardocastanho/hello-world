@@ -11,8 +11,13 @@ exports.up = async knex => {
       table.enu('status', ['TODO', 'DOING', 'DONE']).notNullable().defaultTo('ToDo')
       table.timestamps(true, true)
       table.timestamp('deleted_at')
-      table.foreign('product_id').references('products.id').onDelete('CASCADE')
-      table.foreign('sprint_id').references('sprints.id').onDelete('CASCADE')
+
+      table.foreign('product_id').references('products.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table.foreign('sprint_id').references('sprints.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     })
     .then(() => knex.raw(onUpdateTrigger('pendencies')))
 }

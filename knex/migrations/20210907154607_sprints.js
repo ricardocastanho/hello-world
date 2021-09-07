@@ -9,7 +9,10 @@ exports.up = async knex => {
       table.enu('duration', ['ONEWEEK', 'TWOWEEKS']).notNullable()
       table.timestamps(true, true)
       table.timestamp('deleted_at')
-      table.foreign('product_id').references('products.id').onDelete('CASCADE')
+
+      table.foreign('product_id').references('products.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     })
     .then(() => knex.raw(onUpdateTrigger('sprints')))
 }

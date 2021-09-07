@@ -7,10 +7,15 @@ exports.up = async knex => {
       table.uuid('user_id').notNullable()
       table.uuid('team_id').notNullable()
       table.enu('role', ['TEAMMATE', 'SCRUMMASTER', 'PRODUCTOWNER']).notNullable()
-      table.foreign('user_id').references('users.id').onDelete('CASCADE')
-      table.foreign('team_id').references('teams.id').onDelete('CASCADE')
       table.timestamps(true, true)
       table.timestamp('deleted_at')
+
+      table.foreign('user_id').references('users.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table.foreign('team_id').references('teams.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     })
     .then(() => knex.raw(onUpdateTrigger('users_teams')))
 }

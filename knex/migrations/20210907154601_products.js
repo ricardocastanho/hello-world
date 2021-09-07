@@ -10,7 +10,10 @@ exports.up = async knex => {
       table.date('deadline')
       table.timestamps(true, true)
       table.timestamp('deleted_at')
-      table.foreign('team_id').references('teams.id').onDelete('CASCADE')
+
+      table.foreign('team_id').references('teams.id')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     })
     .then(() => knex.raw(onUpdateTrigger('products')))
 }
